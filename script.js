@@ -1,27 +1,31 @@
         // Arrays mit Headlines und Beschreibungen
         const headlines = [
-            "Persona definieren mit AIlon",
-            "Mit AIlon Personas erstellen",
-            "Präzise Buyer Personas mit KI",
-            "KI-gestützte Persona-Analyse",
-            "Für Marketing und Kreation",
-            "DSGVO-Konform erstellen",
-            "Buyer Personas für smarte Ads",
-            "Buyer Persona erstellen mit KI",
-            "Präzise Analysen mit AIlon",
-            "Zielgruppen modellieren",
-            "Zielgruppen & Marktpotenziale",
-            "Persona erstellen & aktivieren",
-            "Persona mit KI definieren",
-            "Die Lösung für Buyer Personas",
-            "Effektivere Werbung dank AIlon"
+                "AIlon - KI Marktforschung",
+                "Präzise Buyer Personas mit KI",
+                "Persona definieren mit AIlon",
+                "Die Lösung für Buyer Personas",
+                "Präzise Analysen mit AIlon",
+                "Für effiziente Werbung",
+                "Buyer Persona Präzisierung",
+                "Überprüfe deine Buyer Personas",
+                "Mit der AIlon KI & smart Data",
+                "Zielgruppen-Daten",
+                "Persona definieren mit KI",
+                "Für Marketing und Kreation",
+                "Präzise Persona-Beschreibung",
+                "Operationalisierbare Personas",
+                "KI-Zielgruppen-Analyse",
         ];
 
         const descriptions = [
-            "Mit AIlon datenschutzkonforme Personas erstellen und Zielgruppen modellieren. Jetzt testen",
-            "Präzise Buyer Persona für zielgerichtete Social Media Ads. AIlon Demo starten.",
-            "AIlon modelliert mit KI & Daten genaue Buyer Personas, die direkt aktiviert werden können.",
-            "Buyer Persona erstellen war gestern. Zielgruppen modellieren mit AIlon für präzise Ads.",
+                "AIlon: KI Marktforschung & Zielgruppenanalysen. Fundierte Erkenntnisse in kürzester Zeit.",
+                "Verstehe Bedürfnisse, Motivation und Verhalten deiner Zielgruppe. ",
+                "Echte Daten statt Bauchgefühl. Verhaltensbasierte Consumer Insights für Marketing.",
+                "Präzise Insights für deine Buyer Personas in 5 Minuten. Jetzt AIlon Demo starten.",
+                "Nutze das volle Potenzial deiner Buyer Personas. Erhalte Consumer Insights mit AIlon.",
+                "Operationalisierbare Persona-Insights für Marketing, Kommunikation und Media.",
+                "Für relevante Produkte, effektive und effiziente Kampagnen. Jetzt AIlon kennenlernen.",
+                "Soziodemografie, Geografie, Psychografie, Werte, Affinitäten, Mediennutzung und mehr.",
             ];
 
         // Funktion, die zufällige Kombinationen der Headlines und Beschreibungen anzeigt
