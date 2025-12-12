@@ -17,8 +17,8 @@ const ADS_INDEX = {
     HEADLINE_END: 25,       // Headline 15 (exklusiv)
     DESCRIPTION_START: 25,  // Description 1
     DESCRIPTION_END: 29,    // Description 4 (exklusiv)
-    PATH_1: 46,
-    PATH_2: 47
+    PATH_1: 48,
+    PATH_2: 49
 };
 
 // =====================================
