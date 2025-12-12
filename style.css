@@ -106,7 +106,7 @@ body {
 }
 
 /* Button außerhalb der Box */
-.button-container {
+.button-container, .reload-form-button-container {
     text-align: center;
     margin-top: 20px;
 }
@@ -123,4 +123,19 @@ body {
 
 .button-container button:hover {
     background-color: #1669c1;
+}
+
+.reload-form-button-container button {
+    font-size: 14px;
+    padding: 8px 16px;
+    background-color: #f4f4f9;
+    color: #ededed;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reload-form-button-container button:hover {
+    background-color: #ededed;
+    color: #fff;
 }
