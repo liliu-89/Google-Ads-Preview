@@ -1,11 +1,11 @@
 // =====================================
-// CSV-Quellen
+// Statische Basis-URLs (ohne Cache-Busting)
 // =====================================
 
-const ADS_CSV_URL =
+const ADS_CSV_BASE_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMERWNBhXcssdIDUzC6eiUCk6etxr2gEFaRVqfcv1-SJGXzvy6L-7NEYZL-0QSoaRqibrzg_DS0chK/pub?gid=0&single=true&output=csv";
 
-const BRAND_CSV_URL =
+const BRAND_CSV_BASE_URL =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMERWNBhXcssdIDUzC6eiUCk6etxr2gEFaRVqfcv1-SJGXzvy6L-7NEYZL-0QSoaRqibrzg_DS0chK/pub?gid=1062222186&single=true&output=csv";
 
 // =====================================
@@ -35,16 +35,62 @@ let path2 = "";
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
+    reloadFromSheet(); // Initial immer frisch aus dem Sheet laden
+});
+
+// =====================================
+// Cache-Busting URLs
+// =====================================
+
+function getAdsCsvUrl() {
+    return ADS_CSV_BASE_URL + "&t=" + Date.now();
+}
+
+function getBrandCsvUrl() {
+    return BRAND_CSV_BASE_URL + "&t=" + Date.now();
+}
+
+// =====================================
+// Öffentliche Aktionen (Buttons)
+// =====================================
+
+// Neue Kombination aus bereits geladenen Assets
+function generateAdPreview() {
+    if (!headlines.length || !descriptions.length) return;
+
+    const headline1 = getRandomItem(headlines);
+    const headline2 = getRandomItem(
+        headlines.filter(h => h !== headline1)
+    );
+
+    const description1 = getRandomItem(descriptions);
+    const description2 = getRandomItem(
+        descriptions.filter(d => d !== description1)
+    );
+
+    setText("adTitle1", headline1);
+    setText("adTitle2", headline2);
+    setText("adDescription1", description1);
+    setText("adDescription2", description2);
+
+    setText(
+        "adPath",
+        [path1, path2].filter(Boolean).join("/")
+    );
+}
+
+// Frisch aus Google Sheet laden (für Live-Präsentationen)
+function reloadFromSheet() {
     loadBrandConfig();
     loadAdAssets();
-});
+}
 
 // =====================================
 // Brand-Config laden
 // =====================================
 
 function loadBrandConfig() {
-    Papa.parse(BRAND_CSV_URL, {
+    Papa.parse(getBrandCsvUrl(), {
         download: true,
         skipEmptyLines: true,
         complete: function (result) {
@@ -53,9 +99,9 @@ function loadBrandConfig() {
             // Zeile 2
             const row = result.data[1];
 
-            setText("brandName", row[1]);       // Brandname
-            setText("displayUrl", row[2]);      // Display URL
-            setAttr("brandFavicon", "src", row[3]); // Favicon URL
+            setText("brandName", cleanValue(row[1]));
+            setText("displayUrl", cleanValue(row[2]));
+            setAttr("brandFavicon", "src", cleanValue(row[3]));
         },
         error: function (err) {
             console.error("Brand CSV Error:", err);
@@ -68,7 +114,7 @@ function loadBrandConfig() {
 // =====================================
 
 function loadAdAssets() {
-    Papa.parse(ADS_CSV_URL, {
+    Papa.parse(getAdsCsvUrl(), {
         download: true,
         skipEmptyLines: true,
         complete: function (result) {
@@ -99,34 +145,6 @@ function loadAdAssets() {
             console.error("Ads CSV Error:", err);
         }
     });
-}
-
-// =====================================
-// Anzeige generieren
-// =====================================
-
-function generateAdPreview() {
-    if (!headlines.length || !descriptions.length) return;
-
-    const headline1 = getRandomItem(headlines);
-    const headline2 = getRandomItem(
-        headlines.filter(h => h !== headline1)
-    );
-
-    const description1 = getRandomItem(descriptions);
-    const description2 = getRandomItem(
-        descriptions.filter(d => d !== description1)
-    );
-
-    setText("adTitle1", headline1);
-    setText("adTitle2", headline2);
-    setText("adDescription1", description1);
-    setText("adDescription2", description2);
-
-    setText(
-        "adPath",
-        [path1, path2].filter(Boolean).join("/")
-    );
 }
 
 // =====================================
