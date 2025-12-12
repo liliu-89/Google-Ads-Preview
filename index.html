@@ -10,32 +10,32 @@
 <body>
     <!-- Navbar mit Logo -->
     <div class="navbar">
-        <img src="https://liliu.de/wp-content/uploads/2024/08/li_liu_logo@2x.png" alt="AIlon Logo">
+        <img src="https://liliu.de/wp-content/uploads/2024/08/li_liu_logo@2x.png">
     </div>
     <h1 style="text-align:center;">Google Ads Vorschau</h1>
     <div class="container">
         <div class="ad-container">
             <!-- Header with logo and brand name -->
             <div class="ad-header">
-                <img src="https://www.ailon.io/favicon.ico" alt="AIlon Logo">
-                <div>
-                    <h1>AIlon</h1>
-                    <p>www.ailon.io/<mark>buyer-persona/erstellen</mark></p>
+                <img id="brandFavicon">
+                <div class="ad-header-text">
+                    <h1 id="brandName"></h1>
+                    <p><span id="displayUrl"></span>/<mark id="adPath"></mark></p>
                 </div>
             </div>
 
             <!-- Ad Titles displayed side by side inside a <span> -->
             <div class="ad-title-container">
                 <div id="adTitle" class="ad-title">
-                    <span id="adTitle1">AIlon - KI Marktforschung</span><span>-</span>
-                    <span id="adTitle2">Zielgruppen modellieren</span>
+                    <span id="adTitle1"></span><span>-</span>
+                    <span id="adTitle2"></span>
                 </div>
             </div>
 
             <!-- Ad Descriptions displayed one below the other -->
             <div class="ad-description-container">
-                <div id="adDescription1" class="ad-description">AIlon - KI Marktforschung und Zielgruppen-Analysen. Potenziale erkennen und gezielt nutzen.</div>
-                <div id="adDescription2" class="ad-description">Nutzen Sie KI, um Ihre Zielgruppen präzise zu analysieren und Kampagnen zu optimieren.</div>
+                <div id="adDescription1" class="ad-description"></div>
+                <div id="adDescription2" class="ad-description"></div>
             </div>
 
         </div>
@@ -46,6 +46,7 @@
         <button onclick="generateAdPreview()">Neue Vorschau generieren</button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="script.js"></script>
 
 </body>
